@@ -345,6 +345,27 @@ body {
   justify-content: center;
 }
 
+.loader {
+  text-align: center;
+  margin: auto;
+  margin-top: 10rem;
+  width: 80px;
+  height: 80px;
+  border: 1rem solid var(--color-background-500);
+  border-radius: 50%;
+  border-top-color: var(--color-primary);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 /*
 SPACING SYSTEM (px)
 2 / 4 / 8 / 12 / 16 / 24 / 32 / 40 / 48 / 64 / 80 / 96 / 128
