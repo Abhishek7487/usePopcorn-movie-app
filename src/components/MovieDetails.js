@@ -44,6 +44,23 @@ function MovieDetails({ selectedId, onCloseMovie, watched, onAddWatched }) {
 
   useEffect(
     function () {
+      function callback(e) {
+        if (e.code === "Escape") {
+          onCloseMovie();
+        }
+      }
+      document.addEventListener("keydown", callback);
+
+      return function () {
+        document.removeEventListener("keydown", callback);
+      };
+    },
+
+    [onCloseMovie]
+  );
+
+  useEffect(
+    function () {
       async function getMovieDetails() {
         setIsLoading(true);
         const res =
@@ -66,7 +83,6 @@ function MovieDetails({ selectedId, onCloseMovie, watched, onAddWatched }) {
 
       return function () {
         document.title = "usePopcorn";
-        console.log(`Clean up effect for the movie ${title}`);
       };
     },
     [title]
